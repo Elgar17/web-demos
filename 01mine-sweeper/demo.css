@@ -1,0 +1,134 @@
+#mine {
+    margin: 50px auto;
+
+}
+
+body {
+    background-image: url(./img/wiktor.jpg);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center center;
+    /* 背景铺盖整个视野 */
+    background-size: cover;
+    background-color: #fff;
+    font-size: 14px 'microsoft yehei ';
+    font-weight: 300;
+}
+
+.time{
+    text-align: center;
+    font-size: 15px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+button {
+    font-family: sans-serif, '黑体';
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    /*文字大小写 ： 全部大写*/
+    text-align: center;
+    border: 2px solid rgba(0, 0, 200, 0.7);
+    background: rgba(0, 0, 200, 0.3);
+    color: white;
+    /* rgba(0, 0, 200, 0.6); */
+    box-shadow: 1px 1px 2px rgba(0, 0, 200, 0.4);
+    /*盒子阴影*/
+    border-radius: 10px;
+    padding: 3px 10px;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+    outline: none;
+}
+
+.level {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.active {
+    background: rgba(0, 0, 200, 0.7);
+}
+
+table {
+    border-spacing: 1px;
+    background: #929196;
+    margin: 0 auto;
+}
+
+td {
+    width: 20px;
+    height: 20px;
+    background: #ccc;
+    border: 2px solid;
+    border-color: #fff #a1a1a1 #a1a1a1 #fff;
+
+    text-align: center;
+    line-height: 20px;
+    font-weight: bold;
+}
+
+.info {
+    margin: 5px auto;
+    text-align: center;
+}
+
+.mine1 {
+    background: #d9d9d9 url(img/TNT.png) no-repeat center;
+    background-size: cover;
+}
+
+.flag {
+    background: #ccc url(img/redFlag.png);
+    background-size: cover;
+}
+
+.zero {
+    border-color: #ddd;
+    background-color: #ddd;
+}
+
+.one {
+    border-color: #ddd;
+    background-color: #ddd;
+    color: #0332fe;
+}
+
+.two {
+    border-color: #ddd;
+    background-color: #ddd;
+    color: #038103;
+}
+
+.tree {
+    border-color: #ddd;
+    background-color: #ddd;
+    color: #ff0000;
+}
+
+.four {
+    border-color: #ddd;
+    background-color: #ddd;
+}
+
+.five {
+    border-color: #ddd;
+    background-color: #ddd;
+}
+
+.six {
+    border-color: #ddd;
+    background-color: #ddd;
+}
+
+.seve {
+    border-color: #ddd;
+    background-color: #ddd;
+}
+
+.eight {
+    border-color: #ddd;
+    background-color: #ddd;
+}
