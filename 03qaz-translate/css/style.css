@@ -5,8 +5,11 @@
     .trans-box {
         display: block;
         width: 100%;
-        border-radius: 0 !important;
+        border: 0 !important;
         padding: 15px !important;
+    }
+    .trans-box>textarea{
+        border: 0 !important;;
     }
     .clear-buttom{
         right: 35px !important;
