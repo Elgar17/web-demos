@@ -12,3 +12,11 @@
 | 4    | [🎵 音乐播放器 ](./04player/README.md)          | ⭐⭐   | 基于原生 JS 的简单播放器页面       |
 | 5    | [👍 好看的评论页面](./05rate/README.md)         | ⭐    | 基于原生 JS 的交互式评论页面       |
 
+<<<<<<< HEAD
+=======
+2、[Vue-Todo 应用](./02vue-todo/README.md)
+
+3、[文字转换工具](./03qaz-translate/README.md)
+
+4、[音乐播放器🎵](./04/player/README.md)
+>>>>>>> 9f8ac258c3e2c3e2eb8eac72eefee2debf59d55b
