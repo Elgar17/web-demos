@@ -61,14 +61,14 @@
             </div>
             <div class="col-sm-6 trans-box">
                 <span @click="clear" v-show="inputVlue.length" class="clear-buttom">X</span>
-                <textarea autofocus v-model="inputVlue" name="translate" id="" cols="40" rows="12"></textarea>
+                <textarea placeholder="请输入西里尔文" autofocus v-model="inputVlue" name="translate" id="" cols="40" rows="12"></textarea>
                 <div class="footNav">{{inputVlue.length}}/5000 <span>⌨</span></div>
             </div>
             <div class="col-sm-6 trans-box2">
                 <div>
                     <textarea readonly :class="['output', isRight ? 'align-right':'']" v-model="output" cols="30"
                         rows="12">  </textarea>
-                    <div class="footNav"><span @click="copy" class="copy" title="点击复制"></span></div>
+                    <div class="footNav footNav2"><span @click="copy" class="copy" title="点击复制"></span></div>
                 </div>
             </div>
         </div>
@@ -85,7 +85,7 @@
         var app = new Vue({
             el: ".box",
             data: {
-                inputVlue: 'елғар',
+                inputVlue: '',
                 output: '',
                 isRight: false
             },
