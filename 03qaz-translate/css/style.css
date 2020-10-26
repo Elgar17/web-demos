@@ -1,3 +1,9 @@
+@font-face
+{
+	font-family: kaz;
+	src: url('../font/webfont.ttf')
+}
+
 /********************
        head
 ********************/
@@ -139,6 +145,7 @@ textarea {
     box-sizing: border-box;
     padding: 20px;
     border: none;
+    font-family: kaz;
 }
 
 article .trans-box2 {
