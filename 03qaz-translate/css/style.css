@@ -95,6 +95,7 @@ h1 {
        article
 ********************/
 
+
 .tran-head {
     height: 40px;
 }
@@ -128,7 +129,9 @@ article .trans-box {
 .trans-box textarea:focus{
     border: 1px solid #0094ff;
 }
-
+.btn-default{
+    font-family: kaz;
+}
 /* .trans-box2 textarea {
     padding-left: 0;
 } */
@@ -141,7 +144,7 @@ textarea {
     word-wrap: break-word;
     overflow-x: hidden;
     overflow-y: auto;
-    font-size: 18px;
+    font-size: 18mm;
     box-sizing: border-box;
     padding: 20px;
     border: none;

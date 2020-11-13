@@ -59,6 +59,7 @@
                     <!-- <button @click="translation" type="button" class="btn btn-default">翻译</button> -->
                 </div>
             </div>
+
             <div class="col-sm-6 trans-box">
                 <span @click="clear" v-show="inputVlue.length" class="clear-buttom">X</span>
                 <textarea placeholder="请输入西里尔文" autofocus v-model="inputVlue" name="translate" id="" cols="40" rows="12"></textarea>
@@ -68,7 +69,7 @@
                 <div>
                     <textarea readonly :class="['output', isRight ? 'align-right':'']" v-model="output" cols="30"
                         rows="12">  </textarea>
-                    <div class="footNav footNav2"><span @click="copy" class="copy" title="点击复制"></span></div>
+                    <div class="footNav footNav2"> <i class="el-icon-edit"></i><span @click="copy" class="copy" title="点击复制"></span></div>
                 </div>
             </div>
         </div>
@@ -91,7 +92,7 @@
             },
             methods: {
                 tranQaz: function () {
-                    this.output = syTranQaz(this.inputVlue, 0)
+                    this.output = wordTran(this.inputVlue)
                     this.isRight = true;
                 },
                 tranLat: function () {
