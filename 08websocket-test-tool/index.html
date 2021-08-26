@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.1/vue.js"></script>
+    <!-- 1. 导入css -->
+    <link href="https://cdn.bootcss.com/element-ui/2.8.2/theme-chalk/index.css" rel="stylesheet">
+    <!-- 2. 引入vue和vue-router-->
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+    <!-- 未使用vue路由功能可不导入 -->
+    <script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.js"></script>
+    <!-- 3. 引入ElementUI组件 -->
+    <script src="https://cdn.bootcss.com/element-ui/2.8.2/index.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <el-row :gutter="20">
+            <el-col :span="10" :offset="7">
+                <h1>WebSocket 测试工具🔩</h1>
+                <div class="grid-content bg-purple">
+                    <el-form :inline="true" :model="formInline" class="demo-form-inline">
+                        <el-form-item label="地址：">
+                            <el-input v-model="formInline.url" size="small" clearable placeholder="URL"></el-input>
+                        </el-form-item>
+                        <el-form-item>
+                            <el-button type="primary" size="small" @click="onSubmit">连接</el-button>
+                        </el-form-item>
+                    </el-form>
+                    <!-- <el-button type="primary" @click="open">点击打开 Message Box</el-button> -->
+                </div>
+                <div class="grid-content bg-purple">
+                    <el-form :inline="true" :model="msg" class="demo-form-inline">
+                        <el-form-item label="发送：">
+                            <el-input v-model="msg.content" clearable size="small" placeholder="请输入发送的数据"></el-input>
+                        </el-form-item>
+                        <el-form-item>
+                            <el-button type="success" size="small" @click="send">发送</el-button>
+                            <el-button type="danger" size="small" @click="close">关闭</el-button>
+                        </el-form-item>
+                    </el-form>
+                </div>
+                
+                <el-input type="textarea" disabled clearable :autosize="{ minRows: 10, maxRows: 20}" placeholder="这里显示收到的数据.."
+                    v-model="textarea2">
+                </el-input>
+            </el-col>
+        </el-row>
+
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            formInline: {},
+            msg: {},
+            socket: null,
+            textarea2: '',
+            flage: true
+        },
+        methods: {
+            open() {
+                this.$message.success({
+                    message: 'websocket 连接成功',
+                    type: 'success'
+                });
+            },
+            onSubmit() {
+                if (this.formInline.url) {
+                    this.socket = new WebSocket(this.formInline.url);
+                    this.socket.addEventListener('open', () => {
+                        this.$message.success({
+                            message: 'websocket 连接成功',
+                            type: 'success'
+                        });
+                    })
+                    this.socket.addEventListener('message', e => {
+                        if (typeof (e.data) === "string") {
+                            console.log(e.data)
+                            this.textarea2 += e.data
+                            this.$message.success({
+                                message: '收到字符串数据',
+                                type: 'success'
+                            });
+                        } else {
+                            console.log(e.data)
+                            var fr = new FileReader();
+                            fr.onloadend = function (e) {
+                                console.log(JSON.parse(e.target.result));
+                            };
+                            fr.readAsText(e.data);
+                            this.textarea2 += e.data;
+                            if(this.flage){
+                                this.flage = false;
+                                this.$message.success({
+                                    message: '收到二进制数据, 按 F12 控制台查看！',
+                                    type: 'success'
+                                });
+                            }
+                        }
+                    })
+                }
+            },
+            send() {
+                if (this.msg.content) {
+                    this.socket.send(this.msg.content)
+                }
+            },
+            close() {
+                this.socket.close()
+            }
+        }
+    });
+
+</script>
+
+</html>
