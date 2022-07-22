@@ -11,5 +11,3 @@ npm i -D tailwindcss postcss autoprefixer
 ```bash
 npx tailwindcss init -p
 ```
-
-652301197209104714
