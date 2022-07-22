@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>HARAHOZI-字符转换工具</title>
+    <!-- 引入框架 -->
+    <!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- CSS重置样式 -->
+    <link rel="stylesheet" href="css/reset.css">
+    <!-- 外联样式 -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+    <!----------------------
+            header   <span>文字转换工具</span>
+    ------------------------>
+    <div>
+        <nav class="navbar navbar-default">
+            <div class="container">
+                <div class="row">
+                    <div class="container-fluid">
+                        <a href="#">
+                            <h1> <img class="logo" alt="HARAHOZI-字符转换工具" src="img/logo.png"></h1>
+                        </a>
+                        <div class="menu navbar-header">
+                            菜单
+                            <span class="glyphicon glyphicon-menu-hamburger"></span>
+                            <div>
+                                <ul class="down-menu">
+                                    <span class="top-arrow glyphicon glyphicon-triangle-top"></span>
+                                    <li><a href="#"></a>ҚАЗ日历</a></li>
+                                    <li><a href="#">参与开发</a></li>
+                                    <li><a href="#"></a>请我喝一杯</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!----------------------
+            article
+    ------------------------>
+    <article class="box container">
+        <div class="row">
+            <div class="tran-head">
+                <div class="btn-group" role="group" aria-label="...">
+                    <button @click="tranQaz" type="button" class="btn btn-default">ҚАЗ ⚡ قازاق</button>
+                    <!-- <button type="button" class="btn btn-default">转</!-->
+                    <button @click="tranLat" type="button" class="btn btn-default">ҚАЗ ⚡ latin </button>
+                    <!-- <button @click="translation" type="button" class="btn btn-default">翻译</button> -->
+                </div>
+            </div>
+
+            <div class="col-sm-6 trans-box">
+                <span @click="clear" v-show="inputVlue.length" class="clear-buttom">X</span>
+                <textarea placeholder="请输入西里尔文" autofocus v-model="inputVlue" name="translate" id="" cols="40" rows="12"></textarea>
+                <div class="footNav">{{inputVlue.length}}/5000 <span>⌨</span></div>
+            </div>
+            <div class="col-sm-6 trans-box2">
+                <div>
+                    <textarea readonly :class="['output', isRight ? 'align-right':'']" v-model="output" cols="30"
+                        rows="12">  </textarea>
+                    <div class="footNav footNav2"> <i class="el-icon-edit"></i><span @click="copy" class="copy" title="点击复制"></span></div>
+                </div>
+            </div>
+        </div>
+        <footer>
+            <a href="erweima.html">发送反馈</a>
+        </footer>
+    </article>
+    <!----------------------
+            footer
+    ------------------------>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/style.js"></script>
+    <script>
+        var app = new Vue({
+            el: ".box",
+            data: {
+                inputVlue: '',
+                output: '',
+                isRight: false
+            },
+            methods: {
+                tranQaz: function () {
+                    this.output = wordTran(this.inputVlue)
+                    this.isRight = true;
+                },
+                tranLat: function () {
+                    this.output = syTranQaz(this.inputVlue, 1)
+                    this.isRight = false
+                },
+                clear: function () {
+                    this.inputVlue = ""
+                },
+                copy: function () {
+                    if (this.output.trim() != "") {
+                        this.copyToClipboard(this.output);
+                        alert("复制成功")
+                    }
+                },
+                copyToClipboard:function (s) {
+                    if (window.clipboardData) {
+                        window.clipboardData.setData('text', s);
+                    } else {
+                        (function (s) {
+                            document.oncopy = function (e) {
+                                e.clipboardData.setData('text', s);
+                                e.preventDefault();
+                                document.oncopy = null;
+                            }
+                        })(s);
+                        document.execCommand('Copy');
+                    }
+                }
+            }
+        });
+    </script>
+    <script>
+
+    </script>
+</body>
+
+</html>

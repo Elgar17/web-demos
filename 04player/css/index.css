@@ -1,0 +1,165 @@
+#wrapper {
+    max-width: 350px;
+    width: 100%;
+
+    margin: 0 auto;
+
+}
+
+.b-g-img-box {
+    width: 100%;
+    height: 270px;
+    background-image: url(../icon&&img/美图帅哥‘.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* filter: blur(0px); */
+}
+
+.fuzzy {
+    width: 100%;
+    height: 100%;
+}
+
+
+#palyer-box {
+    /* width: 100%;
+    height: 400px; */
+    background-color: #fff;
+    border-radius: 50px 50px 0 0;
+    margin-top: -55px;
+}
+
+.main-img {
+    width: 135px;
+    height: 180px;
+    margin: 0 auto;
+    margin-top: -50px;
+}
+
+.main-img img {
+    width: 135px;
+    height: 180px;
+    margin-top: -50px;
+    border-radius: 12px;
+}
+
+.sing-name-warapper {
+    padding: 0 20px;
+}
+
+.sing-name-warapper .sing-name {
+    font-size: 20px;
+    font-weight: bold;
+}
+.sing-name-warapper .collection {
+    float: right;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url(../icon&&img/未喜欢.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.sing-name-warapper .liked{
+    float: right;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url(../icon&&img/已喜欢.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.sing-name-warapper .unlike{
+    float: right;
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url(../icon&&img/未喜欢.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+.sing-name-warapper .more{
+    float: right;
+    display: block;
+    width: 20px;
+    height: 20px;
+    margin-left: 2px;
+    background: url(../icon&&img/更多.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+}
+
+
+.sing-name-warapper .auther {
+    margin-top: 5px;
+    font-size: 13px;
+    color: #ff4e4b;
+}
+
+
+
+/* 进度条 */
+#sing-time-box{
+    width: 100%;
+    height: 50px;
+    padding: 10px 0;
+}
+#sing-time-box #jindutiao{
+    height: 4px;
+    background-color: #ccc;
+}
+#sing-time-box #jindutiao1{
+    float: left;
+    width: 1%;
+    height: 4px;
+    background-color: #ff4e4b;
+}
+
+#sing-time-box .time-box{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 10px;
+}
+
+
+
+
+
+/* 播放列表 */
+    
+#play  div{
+    width: 20px;
+    height: 20px;
+}
+#play  .add{
+    background: url(../icon&&img/收藏.png) no-repeat;
+    background-size: 100%;
+}
+#play  .left{
+    background: url(../icon&&img/上一首.png);
+    background-size: 100%;
+}
+#play  .left{
+    background: url(../icon&&img/上一首.png);
+    background-size: 100%;
+}
+#play .play-mu{
+    width: 50px;
+    height: 50px;
+    background: url(../icon&&img/播放.png) no-repeat;
+    background-size: 100%;
+}
+#play .stop-mu{
+    width: 50px;
+    height: 50px;
+    background: url(../icon&&img/暂停.png) no-repeat;
+    background-size: 100%;
+} 
+#play  .right{
+    background: url(../icon&&img/下一首.png);
+    background-size: 100%;
+}
+#play  .share{
+    background: url(../icon&&img/分享.png);
+    background-size: 100%;
+}

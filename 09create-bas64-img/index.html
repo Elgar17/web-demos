@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vue/2.6.1/vue.js"></script>
+    <!-- 1. 导入css -->
+    <link href="https://cdn.bootcss.com/element-ui/2.8.2/theme-chalk/index.css" rel="stylesheet">
+    <!-- 2. 引入vue和vue-router-->
+    <script src="https://cdn.bootcss.com/vue/2.6.10/vue.js"></script>
+    <!-- 未使用vue路由功能可不导入 -->
+    <script src="https://cdn.bootcss.com/vue-router/3.0.6/vue-router.js"></script>
+    <!-- 3. 引入ElementUI组件 -->
+    <script src="https://cdn.bootcss.com/element-ui/2.8.2/index.js"></script>
+
+    <style>
+        #app {
+            width: 800px;
+            margin: 0 auto;
+        }
+
+        .m-5 {
+            margin: 15px 0;
+        }
+
+        .canvas_w {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 400px;
+        }
+    </style>
+
+</head>
+
+
+<body>
+    <div id="app">
+        <h1>🗺图片生成工具</h1>
+
+        <div class="m-5">
+            <el-form :label-position="labelPosition" label-width="80px" :model="formLabelAlign">
+                <el-form-item label="图片文字">
+                    <el-input v-model="formLabelAlign.name"></el-input>
+                </el-form-item>
+                <el-form-item label="文字颜色">
+                    <el-color-picker v-model="color" show-alpha></el-color-picker>
+                </el-form-item>
+                <el-form-item label="背景颜色">
+                    <el-color-picker v-model="bgColor" show-alpha></el-color-picker>
+                </el-form-item>
+                <el-form-item label="图片高度">
+                    <el-slider v-model="height" :max="max" show-input>
+                    </el-slider>
+                </el-form-item>
+                <el-form-item label="图片宽度">
+                    <el-slider v-model="width" :max="max" show-input>
+                    </el-slider>
+                </el-form-item>
+                <el-button @click="create" plain>生成图片</el-button>
+                <!-- <el-button @click="create" plain>全选路径</el-button> -->
+
+            </el-form>
+        </div>
+        <div class="m-5 canvas_w">
+            <canvas id="canvas">
+
+            </canvas>
+        </div>
+        <el-input ref="input" type="textarea" v-model="textarea" rows="5" show-word-limit>
+        </el-input>
+        <h2>使用说明：</h2>
+        <p>生成图片后，复制输入框中的字符，添加到 img 标签的 src 属性中，就可以网页中显示图片。</p>
+    </div>
+</body>
+<script>
+    var vm = new Vue({
+        el: '#app',
+        data: {
+            max: 400,
+            textarea: "",
+            labelPosition: 'left',
+            formLabelAlign: {
+                name: 'H',
+            },
+            color: 'rgba(255, 255, 255, 0.8)',
+            bgColor: 'rgba(19, 206, 102, 0.8)',
+            height: 40,
+            width: 40
+        },
+        mounted() {
+            this.create()
+        },
+        methods: {
+            create() {
+                let path = this.createImgPath(this.formLabelAlign.name, this.color, this.bgColor, this.width, this.height)
+                this.textarea = path;
+            },
+            createImgPath(str, color, bgColor, w, h) {
+                let canvas = document.getElementById('canvas')
+                canvas.setAttribute("width", w)
+                canvas.setAttribute("height", h)
+                let ctx = canvas.getContext('2d')
+                ctx.fillStyle = bgColor
+                ctx.fillRect(0, 0, w, h)
+                ctx.font = "20px serif"
+                ctx.fillStyle = color
+                ctx.textAlign = 'center'
+                ctx.fillText(str, w / 2, h / 2 + 5)
+                return canvas.toDataURL()
+            }
+        }
+    });
+</script>
+
+</html>

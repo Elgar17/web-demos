@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #f5bf41;
+        }
+
+        .box {
+            width: 450px;
+            height: 450px;
+            margin: 20px auto;
+            border-radius: 20px;
+            background-color: #fff;
+            overflow: hidden;
+        }
+
+        .hand {
+            width: 100%;
+            height: 170px;
+            margin-top: 30px;
+            text-align: center;
+            font-size: 80px;
+            line-height: 170px;
+        }
+
+        p {
+            text-align: center;
+        }
+
+        .btn-con {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .btn-con button {
+            width: 50px;
+            height: 50px;
+            background-color: inherit;
+            outline: none;
+            border: none;
+
+        }
+
+        .box .good {
+            font-size: 45px;
+            font-weight: bold;
+        }
+
+        .yellowStar {
+            background: url(./star1.png) no-repeat center;
+        }
+
+        .star {
+            background: url(./star.png) no-repeat center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <div class="hand">
+
+        </div>
+        <p class="str1">Tell us how was your Experience?</p>
+        <div class="btn-con">
+            <button class="star"></button>
+            <button class="star"></button>
+            <button class="star"></button>
+            <button class="star"></button>
+            <button class="star"></button>
+        </div>
+        <p class="good">Good</p>
+    </div>
+
+
+    <script>
+        var btns = document.querySelectorAll("button")
+        var handNode = document.getElementsByClassName("hand")
+        var hands = ["👆", "✌", "👌", "🤞", "🤙"]
+
+        for (let i = 0; i < btns.length; i++) {
+            btns[i].onclick = function () {
+                handNode[0].innerHTML = hands[i];
+                for (let y = 0; y < 5; y++) {
+                    btns[y].className = "star"
+                }
+                for (let j = 0; j < i + 1; j++) {
+                    btns[j].className = "yellowStar"
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>
